@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -41,10 +42,13 @@ const Navbar = () => {
               </button>
             ))}
           </div>
-          <div className="hidden md:block">
-            <Button onClick={() => scrollTo("#contact")} className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-2 rounded-lg">Get Started</Button>
+          <div className="flex items-center gap-2">
+            <ThemeToggle />
+            <div className="hidden md:block">
+              <Button onClick={() => scrollTo("#contact")} className="bg-primary hover:bg-primary/90 text-white font-semibold px-6 py-2 rounded-lg">Get Started</Button>
+            </div>
+            <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2 rounded-lg hover:bg-accent/10 transition-colors">{isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
           </div>
-          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden p-2 rounded-lg hover:bg-accent/10 transition-colors">{isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}</button>
         </div>
         {isOpen && (
           <div className="lg:hidden border-t border-border/50 py-4 mt-4 animate-fade-in">
