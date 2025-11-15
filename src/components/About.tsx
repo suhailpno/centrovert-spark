@@ -4,10 +4,10 @@ import { useScrollReveal } from "@/hooks/useScrollReveal";
 
 const About = () => {
   const features = [
-    { icon: Globe, title: "Global Reach", description: "Singapore-based, serving businesses worldwide with cutting-edge solutions", color: "from-blue-500 to-cyan-500" },
-    { icon: Zap, title: "Innovation First", description: "Leveraging the latest AI technologies to transform your business operations", color: "from-purple-500 to-pink-500" },
-    { icon: Shield, title: "Reliable Partner", description: "Trusted by companies globally for consistent, quality deliverables", color: "from-green-500 to-emerald-500" },
-    { icon: Users, title: "Client-Centric", description: "Tailored solutions that align with your unique business objectives", color: "from-orange-500 to-red-500" },
+    { icon: Shield, title: "Mission-Driven", description: "Empowering businesses with AI-driven solutions that solve real-world problems efficiently.", color: "from-blue-500 to-cyan-500" },
+    { icon: Users, title: "Expert Team", description: "A diverse team of AI specialists, developers, and strategists committed to excellence.", color: "from-purple-500 to-pink-500" },
+    { icon: Zap, title: "Rapid Innovation", description: "Fast-paced development cycles delivering cutting-edge solutions in record time.", color: "from-green-500 to-emerald-500" },
+    { icon: Globe, title: "Global Reach", description: "Based in Singapore, serving clients worldwide with 24/7 support and dedication.", color: "from-orange-500 to-red-500" },
   ];
 
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
@@ -22,7 +22,7 @@ const About = () => {
             <span className="text-sm font-semibold text-primary">About Us</span>
           </div>
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold">About <span className="text-gradient">Centrovert</span></h2>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">We are a Singapore-based AI & Automation partner dedicated to transforming businesses through intelligent digital solutions.</p>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">A Singapore-based AI IT startup revolutionizing how businesses leverage artificial intelligence. We specialize in real-time problem solving, innovative SaaS products, and intelligent automation.</p>
         </div>
         <div ref={contentRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (

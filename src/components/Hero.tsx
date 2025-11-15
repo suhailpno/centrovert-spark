@@ -27,36 +27,25 @@ const Hero = () => {
         <div className="max-w-5xl mx-auto space-y-8">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-effect border border-primary/20 animate-fade-in">
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium">AI-Powered Digital Transformation</span>
+            <span className="text-sm font-medium">Singapore's Leading AI Innovation Hub</span>
           </div>
 
           <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold leading-tight animate-fade-up">
-            Empowering Businesses Through <span className="text-gradient">AI & Automation</span>
+            Transform Your Business<br />
+            <span className="text-gradient">with AI Solutions</span>
           </h1>
 
-          <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-3xl mx-auto font-light animate-fade-up" style={{ animationDelay: "0.2s" }}>
-            Innovating the future with intelligent digital transformation
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto font-light animate-fade-up" style={{ animationDelay: "0.2s" }}>
+            Centrovert delivers cutting-edge AI technology, intelligent workflows, and innovative digital solutions to propel your business into the future.
           </p>
 
-          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto py-8 animate-fade-up" style={{ animationDelay: "0.4s" }}>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-gradient font-heading">50+</div>
-              <div className="text-sm text-muted-foreground mt-1">Projects Delivered</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-gradient font-heading">95%</div>
-              <div className="text-sm text-muted-foreground mt-1">Client Satisfaction</div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-gradient font-heading">24/7</div>
-              <div className="text-sm text-muted-foreground mt-1">Support Available</div>
-            </div>
-          </div>
-
-          <div className="pt-4 animate-fade-up" style={{ animationDelay: "0.6s" }}>
-            <Button size="lg" onClick={scrollToContact} className="group bg-gradient-to-r from-primary to-accent hover:opacity-90 text-white text-lg px-10 py-7 rounded-2xl shadow-2xl hover:shadow-glow transition-all hover:scale-105 font-heading font-semibold">
-              Let's Innovate Together
+          <div className="flex flex-wrap justify-center gap-4 pt-4 animate-fade-up" style={{ animationDelay: "0.4s" }}>
+            <Button size="lg" onClick={scrollToContact} className="group bg-primary hover:bg-primary/90 text-white text-lg px-10 py-7 rounded-xl shadow-2xl hover:shadow-glow transition-all hover:scale-105 font-heading font-semibold">
+              Start Your Project
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Button size="lg" onClick={() => document.querySelector("#services")?.scrollIntoView({ behavior: "smooth" })} variant="outline" className="group border-2 border-primary/30 bg-transparent hover:bg-primary/10 text-foreground text-lg px-10 py-7 rounded-xl transition-all hover:scale-105 font-heading font-semibold">
+              Explore Services
             </Button>
           </div>
         </div>
