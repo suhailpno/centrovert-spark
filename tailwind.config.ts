@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['"SF Pro Display"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
-        heading: ['"Cal Sans"', '"SF Pro Display"', 'system-ui', 'sans-serif'],
+        sans: ['"Inter"', 'sans-serif'],
+        heading: ['"Plus Jakarta Sans"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -130,6 +130,14 @@ export default {
           "0%": { backgroundPosition: "-1000px 0" },
           "100%": { backgroundPosition: "1000px 0" },
         },
+        "spotlight": {
+          "0%": { opacity: "0", transform: "translate(-50%, -50%) scale(0.5)" },
+          "100%": { opacity: "1", transform: "translate(-50%, -50%) scale(1)" },
+        },
+        "aurora": {
+          "0%": { backgroundPosition: "50% 50%, 50% 50%" },
+          "100%": { backgroundPosition: "350% 50%, 350% 50%" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -143,6 +151,8 @@ export default {
         "glow": "glow 2s ease-in-out infinite",
         "pulse-slow": "pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         "shimmer": "shimmer 2s linear infinite",
+        "spotlight": "spotlight 2s ease .75s 1 forwards",
+        "aurora": "aurora 60s linear infinite",
       },
     },
   },

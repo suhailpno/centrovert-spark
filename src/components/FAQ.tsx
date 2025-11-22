@@ -1,7 +1,7 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import { HelpCircle } from "lucide-react";
 
 const FAQ = () => {
   const faqs = [
@@ -47,67 +47,71 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="section-padding bg-muted/30 relative overflow-hidden">
-      <div className="absolute inset-0 dot-pattern opacity-30" />
+    <section id="faq" className="section-padding bg-background relative overflow-hidden">
       <div className="container mx-auto container-padding relative z-10">
-        <div 
-          ref={headerRef} 
+
+        {/* Main Header */}
+        <div
+          ref={headerRef}
           className={`text-center max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20 space-y-4 sm:space-y-5 md:space-y-6 transition-all duration-1000 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
           <div className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/30 mb-2 sm:mb-4 shadow-sm">
-            <span className="text-xs sm:text-sm font-bold text-primary tracking-wide">FAQ</span>
+            <span className="text-xs sm:text-sm font-bold text-primary tracking-wide">F.A.Q</span>
           </div>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-4">
-            Frequently Asked Questions
+            Frequently Asked <span className="text-gradient">Questions</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto px-4">
-            Got questions? We've got answers. Find everything you need to know about working with Centrovert.
+            Everything you need to know about our process, services, and how we work.
           </p>
         </div>
 
-        <div 
-          ref={contentRef} 
-          className={`max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        <div
+          ref={contentRef}
+          className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
-            {faqs.map((faq, index) => (
-              <AccordionItem 
-                key={index} 
-                value={`item-${index}`} 
-                className="border border-border/50 rounded-2xl px-4 sm:px-6 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-colors shadow-sm"
-              >
-                <AccordionTrigger className="text-left font-heading font-semibold text-base sm:text-lg hover:text-primary transition-colors py-4 sm:py-6">
-                  {faq.question}
-                </AccordionTrigger>
-                <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pb-4 sm:pb-6">
-                  {faq.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
-        </div>
+          {/* Left Column: CTA */}
+          <div className="lg:col-span-4 space-y-6">
+            <span className="text-sm font-bold text-muted-foreground uppercase tracking-wider">SUPPORT</span>
+            <h3 className="font-heading text-3xl sm:text-4xl font-bold leading-tight">
+              Have Any Questions?
+            </h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Can't find the answer you're looking for? Please chat to our friendly team.
+            </p>
+            <Button
+              onClick={scrollToContact}
+              size="lg"
+              className="bg-green-500 hover:bg-green-600 text-white font-heading font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 w-full sm:w-auto"
+            >
+              Contact us
+            </Button>
+          </div>
 
-        <div 
-          className={`text-center transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} 
-          style={{ transitionDelay: "200ms" }}
-        >
-          <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border-primary/30 shadow-xl">
-            <CardContent className="pt-8 sm:pt-10 md:pt-12 pb-8 sm:pb-10 md:pb-12 space-y-4 sm:space-y-5 px-4 sm:px-6">
-              <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold">
-                Still have questions?
-              </h3>
-              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-md mx-auto">
-                Our team is here to help. Reach out and we'll get back to you within 24 hours.
-              </p>
-              <Button 
-                onClick={scrollToContact} 
-                size="lg" 
-                className="bg-gradient-primary hover:opacity-90 text-white font-heading font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
-              >
-                Contact Us
-              </Button>
-            </CardContent>
-          </Card>
+          {/* Right Column: FAQ List */}
+          <div className="lg:col-span-8">
+            <Accordion type="single" collapsible className="w-full space-y-0 border rounded-lg overflow-hidden">
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={index}
+                  value={`item-${index}`}
+                  className={`border-b border-border/40 bg-card/30 px-6 last:border-0`}
+                >
+                  <AccordionTrigger className="text-left font-heading font-medium text-lg hover:text-primary transition-colors py-5 [&[data-state=open]]:text-primary group">
+                    <div className="flex items-center gap-4">
+                      <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
+                        <HelpCircle className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                      </div>
+                      <span>{faq.question}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-6 pl-10">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </div>
         </div>
       </div>
     </section>

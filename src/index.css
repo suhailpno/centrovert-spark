@@ -27,7 +27,7 @@ All colors MUST be HSL.
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 47%;
 
-    --accent: 199 89% 48%;
+    --accent: 262 83% 58%; /* Violet accent */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -40,10 +40,10 @@ All colors MUST be HSL.
     --radius: 1rem;
     
     /* Enhanced design tokens */
-    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(199 89% 48%));
-    --gradient-accent: linear-gradient(135deg, hsl(199 89% 48%), hsl(221 83% 53%));
+    --gradient-primary: linear-gradient(135deg, hsl(221 83% 53%), hsl(262 83% 58%));
+    --gradient-accent: linear-gradient(135deg, hsl(262 83% 58%), hsl(221 83% 53%));
     --gradient-hero: linear-gradient(180deg, hsl(210 40% 98%) 0%, hsl(0 0% 100%) 100%);
-    --gradient-mesh: radial-gradient(at 0% 0%, hsl(221 83% 53% / 0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, hsl(199 89% 48% / 0.15) 0px, transparent 50%);
+    --gradient-mesh: radial-gradient(at 0% 0%, hsl(221 83% 53% / 0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, hsl(262 83% 58% / 0.15) 0px, transparent 50%);
     
     --shadow-sm: 0 2px 4px hsl(221 83% 53% / 0.05);
     --shadow-md: 0 4px 12px hsl(221 83% 53% / 0.1);
@@ -85,7 +85,7 @@ All colors MUST be HSL.
     --muted: 223 47% 11%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 199 89% 48%;
+    --accent: 262 83% 58%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 63% 31%;
@@ -96,7 +96,7 @@ All colors MUST be HSL.
     --ring: 221 83% 53%;
 
     --gradient-hero: linear-gradient(180deg, hsl(222 47% 8%) 0%, hsl(222 47% 11%) 100%);
-    --gradient-mesh: radial-gradient(at 0% 0%, hsl(221 83% 53% / 0.2) 0px, transparent 50%), radial-gradient(at 100% 0%, hsl(199 89% 48% / 0.2) 0px, transparent 50%);
+    --gradient-mesh: radial-gradient(at 0% 0%, hsl(221 83% 53% / 0.2) 0px, transparent 50%), radial-gradient(at 100% 0%, hsl(262 83% 58% / 0.2) 0px, transparent 50%);
     
     --shadow-sm: 0 2px 4px hsl(221 83% 53% / 0.1);
     --shadow-md: 0 4px 12px hsl(221 83% 53% / 0.2);
@@ -135,7 +135,7 @@ All colors MUST be HSL.
   }
   
   .glass-effect {
-    @apply bg-background/90 backdrop-blur-xl border border-border/50 shadow-lg;
+    @apply bg-background/80 backdrop-blur-xl border border-white/10 shadow-lg;
   }
   
   .gradient-border {
@@ -164,5 +164,27 @@ All colors MUST be HSL.
   
   .container-padding {
     @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
+  }
+
+  .spotlight {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), hsl(var(--primary) / 0.15), transparent 50%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  .spotlight:hover::before {
+    opacity: 1;
   }
 }
