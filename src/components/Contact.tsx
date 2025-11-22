@@ -16,7 +16,23 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({ title: "Message sent!", description: "Thank you for contacting us. We'll get back to you within 24 hours." });
+
+    // WhatsApp number (Singapore format: +65 8899 2295)
+    const whatsappNumber = "6588992295";
+
+    // Format message for WhatsApp
+    const message = `*New Contact Form Submission*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}${formData.company ? `%0A*Company:* ${formData.company}` : ''}%0A%0A*Message:*%0A${formData.message}`;
+
+    // Open WhatsApp with pre-filled message
+    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+
+    // Show success toast
+    toast({
+      title: "Redirecting to WhatsApp",
+      description: "You'll be redirected to WhatsApp to send your message."
+    });
+
+    // Reset form
     setFormData({ name: "", email: "", company: "", message: "" });
   };
 

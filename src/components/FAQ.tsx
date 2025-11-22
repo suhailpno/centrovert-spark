@@ -1,7 +1,6 @@
 import { useScrollReveal } from "@/hooks/useScrollReveal";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
-import { HelpCircle } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 const FAQ = () => {
   const faqs = [
@@ -42,12 +41,13 @@ const FAQ = () => {
   const { ref: headerRef, isVisible: headerVisible } = useScrollReveal();
   const { ref: contentRef, isVisible: contentVisible } = useScrollReveal();
 
-  const scrollToContact = () => {
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section id="faq" className="section-padding bg-background relative overflow-hidden">
+    <section id="faq" className="section-padding bg-muted/30 relative overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 dot-pattern opacity-40" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+
       <div className="container mx-auto container-padding relative z-10">
 
         {/* Main Header */}
@@ -66,52 +66,28 @@ const FAQ = () => {
           </p>
         </div>
 
+        {/* Centered FAQ List */}
         <div
           ref={contentRef}
-          className={`grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+          className={`max-w-3xl mx-auto transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
-          {/* Left Column: CTA */}
-          <div className="lg:col-span-4 space-y-6">
-            <span className="text-sm font-bold text-muted-foreground uppercase tracking-wider">SUPPORT</span>
-            <h3 className="font-heading text-3xl sm:text-4xl font-bold leading-tight">
-              Have Any Questions?
-            </h3>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              Can't find the answer you're looking for? Please chat to our friendly team.
-            </p>
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              className="bg-green-500 hover:bg-green-600 text-white font-heading font-semibold px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 w-full sm:w-auto"
-            >
-              Contact us
-            </Button>
-          </div>
-
-          {/* Right Column: FAQ List */}
-          <div className="lg:col-span-8">
-            <Accordion type="single" collapsible className="w-full space-y-0 border rounded-lg overflow-hidden">
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className={`border-b border-border/40 bg-card/30 px-6 last:border-0`}
-                >
-                  <AccordionTrigger className="text-left font-heading font-medium text-lg hover:text-primary transition-colors py-5 [&[data-state=open]]:text-primary group">
-                    <div className="flex items-center gap-4">
-                      <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center shrink-0 group-hover:bg-primary/10 transition-colors">
-                        <HelpCircle className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
-                      </div>
-                      <span>{faq.question}</span>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-base text-muted-foreground leading-relaxed pb-6 pl-10">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+          <Accordion type="single" collapsible className="w-full space-y-3">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="border border-border/40 bg-card/50 backdrop-blur-sm rounded-xl px-5 sm:px-6 overflow-hidden hover:border-primary/30 hover:shadow-md transition-all duration-300"
+                style={{ transitionDelay: `${index * 40}ms` }}
+              >
+                <AccordionTrigger className="text-left font-heading font-semibold text-sm sm:text-base hover:text-primary transition-colors py-4 sm:py-5 [&[data-state=open]]:text-primary group hover:no-underline">
+                  <span className="pr-4">{faq.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pb-4 sm:pb-5 pt-1">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </div>
     </section>

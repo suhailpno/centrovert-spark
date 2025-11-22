@@ -157,7 +157,7 @@ const Hero = () => {
                       <Zap className="w-4 h-4 text-yellow-400" />
                       <span className="text-[10px] font-mono text-green-400">OPTIMIZED</span>
                     </div>
-                    <div className="text-2xl font-bold font-heading">99.9%</div>
+                    <div className="text-2xl font-bold font-heading text-foreground">99.9%</div>
                     <div className="text-[10px] text-muted-foreground">Uptime Guarantee</div>
                   </div>
                 </FloatingCard>
@@ -196,3 +196,5 @@ const Hero = () => {
 };
 
 export default Hero;
+
+
