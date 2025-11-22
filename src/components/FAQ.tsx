@@ -47,25 +47,39 @@ const FAQ = () => {
   };
 
   return (
-    <section id="faq" className="py-24 bg-muted/30 relative overflow-hidden">
+    <section id="faq" className="section-padding bg-muted/30 relative overflow-hidden">
       <div className="absolute inset-0 dot-pattern opacity-30" />
-      <div className="container mx-auto px-4 relative z-10">
-        <div ref={headerRef} className={`text-center max-w-3xl mx-auto mb-16 space-y-4 transition-all duration-1000 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
-            <span className="text-sm font-semibold text-primary">FAQ</span>
+      <div className="container mx-auto container-padding relative z-10">
+        <div 
+          ref={headerRef} 
+          className={`text-center max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20 space-y-4 sm:space-y-5 md:space-y-6 transition-all duration-1000 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <div className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/30 mb-2 sm:mb-4 shadow-sm">
+            <span className="text-xs sm:text-sm font-bold text-primary tracking-wide">FAQ</span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold">Frequently Asked Questions</h2>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">Got questions? We've got answers. Find everything you need to know about working with Centrovert.</p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-4">
+            Frequently Asked Questions
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto px-4">
+            Got questions? We've got answers. Find everything you need to know about working with Centrovert.
+          </p>
         </div>
 
-        <div ref={contentRef} className={`max-w-3xl mx-auto mb-12 transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <Accordion type="single" collapsible className="space-y-4">
+        <div 
+          ref={contentRef} 
+          className={`max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <Accordion type="single" collapsible className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border border-border/50 rounded-xl px-6 bg-card/50 backdrop-blur-sm">
-                <AccordionTrigger className="text-left font-heading font-semibold text-lg hover:text-primary transition-colors py-6">
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`} 
+                className="border border-border/50 rounded-2xl px-4 sm:px-6 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-colors shadow-sm"
+              >
+                <AccordionTrigger className="text-left font-heading font-semibold text-base sm:text-lg hover:text-primary transition-colors py-4 sm:py-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground leading-relaxed pb-6">
+                <AccordionContent className="text-sm sm:text-base text-muted-foreground leading-relaxed pb-4 sm:pb-6">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -73,12 +87,23 @@ const FAQ = () => {
           </Accordion>
         </div>
 
-        <div className={`text-center transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: "200ms" }}>
-          <Card className="max-w-xl mx-auto bg-gradient-to-br from-primary/10 to-accent/10 border-primary/30">
-            <CardContent className="pt-10 pb-10 space-y-4">
-              <h3 className="font-heading text-2xl font-bold">Still have questions?</h3>
-              <p className="text-muted-foreground">Our team is here to help. Reach out and we'll get back to you within 24 hours.</p>
-              <Button onClick={scrollToContact} size="lg" className="bg-primary hover:bg-primary/90 text-white font-heading font-semibold px-8 py-6 rounded-xl">
+        <div 
+          className={`text-center transition-all duration-1000 ${contentVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} 
+          style={{ transitionDelay: "200ms" }}
+        >
+          <Card className="max-w-2xl mx-auto bg-gradient-to-br from-primary/10 via-primary/5 to-accent/10 border-primary/30 shadow-xl">
+            <CardContent className="pt-8 sm:pt-10 md:pt-12 pb-8 sm:pb-10 md:pb-12 space-y-4 sm:space-y-5 px-4 sm:px-6">
+              <h3 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold">
+                Still have questions?
+              </h3>
+              <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-md mx-auto">
+                Our team is here to help. Reach out and we'll get back to you within 24 hours.
+              </p>
+              <Button 
+                onClick={scrollToContact} 
+                size="lg" 
+                className="bg-gradient-primary hover:opacity-90 text-white font-heading font-semibold px-6 sm:px-8 py-5 sm:py-6 text-base sm:text-lg rounded-2xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
+              >
                 Contact Us
               </Button>
             </CardContent>

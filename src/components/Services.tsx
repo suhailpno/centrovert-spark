@@ -53,38 +53,63 @@ const Services = () => {
   const { ref: gridRef, isVisible: gridVisible } = useScrollReveal();
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden bg-muted/30">
+    <section id="services" className="section-padding relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <img src={servicesBg} alt="Services Background" className="w-full h-full object-cover opacity-5" />
         <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
       </div>
       <div className="absolute inset-0 dot-pattern opacity-30 z-0" />
-      <div className="container mx-auto px-4 relative z-10">
-        <div ref={headerRef} className={`text-center max-w-3xl mx-auto mb-16 space-y-4 transition-all duration-1000 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}>
-          <div className="inline-block px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4">
-            <span className="text-sm font-semibold text-primary">What We Offer</span>
+      
+      <div className="container mx-auto container-padding relative z-10">
+        <div 
+          ref={headerRef} 
+          className={`text-center max-w-4xl mx-auto mb-12 sm:mb-16 md:mb-20 space-y-4 sm:space-y-5 md:space-y-6 transition-all duration-1000 ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
+        >
+          <div className="inline-block px-4 sm:px-5 py-1.5 sm:py-2 rounded-full bg-primary/10 border border-primary/30 mb-2 sm:mb-4 shadow-sm">
+            <span className="text-xs sm:text-sm font-bold text-primary tracking-wide">WHAT WE OFFER</span>
           </div>
-          <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold">Our <span className="text-gradient">Services</span></h2>
-          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">Comprehensive AI and technology solutions designed to transform your business and drive innovation.</p>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight px-4">
+            Our <span className="text-gradient">Services</span>
+          </h2>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto px-4">
+            Comprehensive AI and technology solutions designed to transform your business and drive innovation.
+          </p>
         </div>
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 md:gap-10">
           {services.map((service, index) => (
-            <Card key={index} className={`group relative overflow-hidden hover:shadow-2xl transition-all duration-700 border-border/50 hover:border-primary/30 backdrop-blur-sm bg-card/80 hover:-translate-y-3 ${gridVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} style={{ transitionDelay: `${index * 100}ms` }}>
+            <Card 
+              key={index} 
+              className={`group relative overflow-hidden hover:shadow-2xl transition-all duration-700 border-border/50 hover:border-primary/30 backdrop-blur-sm bg-card/80 hover:-translate-y-3 ${gridVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`} 
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-500`} />
-              <CardContent className="pt-10 pb-10 space-y-6 relative z-10">
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
-                  <service.icon className="h-8 w-8 text-white" />
+              
+              <CardContent className="pt-8 sm:pt-10 pb-8 sm:pb-10 space-y-4 sm:space-y-6 relative z-10 px-5 sm:px-6">
+                <div className={`w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg`}>
+                  <service.icon className="h-7 w-7 sm:h-8 sm:w-8 text-white" />
                 </div>
-                <h3 className="font-heading text-2xl font-bold group-hover:text-primary transition-colors">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
-                <div className="flex flex-wrap gap-2 pt-2">
+                
+                <h3 className="font-heading text-xl sm:text-2xl font-bold group-hover:text-primary transition-colors leading-tight">
+                  {service.title}
+                </h3>
+                
+                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                  {service.description}
+                </p>
+                
+                <div className="flex flex-wrap gap-2 pt-2 sm:pt-3">
                   {service.features.map((feature, idx) => (
-                    <span key={idx} className="px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20">
+                    <span 
+                      key={idx} 
+                      className="px-2.5 sm:px-3 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20 font-medium hover:bg-primary/20 transition-colors"
+                    >
                       {feature}
                     </span>
                   ))}
                 </div>
               </CardContent>
+              
               <div className="absolute -right-8 -bottom-8 w-32 h-32 bg-primary/5 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700" />
             </Card>
           ))}
