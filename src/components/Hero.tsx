@@ -127,7 +127,7 @@ const Hero = () => {
                   <BrainCircuit className="w-12 h-12 text-white/80 relative z-10 animate-float" />
 
                   {/* Scanning Line */}
-                  <div className="absolute inset-0 w-full h-[2px] bg-primary/50 shadow-[0_0_10px_rgba(59,130,246,0.5)] animate-scan" />
+                  <div className="absolute inset-0 w-full h-[2px] bg-primary/50 shadow-[0_0_10px_rgba(229,9,20,0.5)] animate-scan" />
                 </div>
 
                 {/* Orbiting Satellite Cards */}
@@ -179,9 +179,9 @@ const Hero = () => {
                   <circle cx="300" cy="300" r="190" fill="none" stroke="url(#orbit-gradient)" strokeWidth="1" strokeDasharray="4 4" className="opacity-20 animate-spin-slow" />
                   <defs>
                     <linearGradient id="orbit-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stopColor="rgba(59, 130, 246, 0)" />
-                      <stop offset="50%" stopColor="rgba(59, 130, 246, 0.3)" />
-                      <stop offset="100%" stopColor="rgba(59, 130, 246, 0)" />
+                      <stop offset="0%" stopColor="rgba(229, 9, 20, 0)" />
+                      <stop offset="50%" stopColor="rgba(229, 9, 20, 0.3)" />
+                      <stop offset="100%" stopColor="rgba(229, 9, 20, 0)" />
                     </linearGradient>
                   </defs>
                 </svg>
