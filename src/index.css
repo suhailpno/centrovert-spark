@@ -38,19 +38,19 @@ All colors MUST be HSL.
     --ring: 357 92% 47%;
 
     --radius: 0.5rem;
-    
+
     /* Enhanced design tokens - Red/Cinematic Theme */
     --gradient-primary: linear-gradient(135deg, hsl(357 92% 47%), hsl(0 100% 35%));
     --gradient-accent: linear-gradient(135deg, hsl(0 0% 9%), hsl(0 0% 25%));
     --gradient-hero: linear-gradient(180deg, hsl(0 0% 98%) 0%, hsl(0 0% 100%) 100%);
     --gradient-mesh: radial-gradient(at 0% 0%, hsl(357 92% 47% / 0.15) 0px, transparent 50%), radial-gradient(at 100% 0%, hsl(0 0% 0% / 0.1) 0px, transparent 50%);
-    
+
     --shadow-sm: 0 2px 4px hsl(0 0% 0% / 0.1);
     --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.15);
     --shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.2);
     --shadow-xl: 0 12px 40px hsl(0 0% 0% / 0.25);
     --shadow-glow: 0 0 60px hsl(357 92% 47% / 0.25);
-    
+
     --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -66,52 +66,52 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 8%;
-    --foreground: 0 0% 98%;
+    --background: 222 47% 8%;
+    --foreground: 210 40% 98%;
 
-    --card: 0 0% 12%;
-    --card-foreground: 0 0% 98%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 98%;
 
-    --popover: 0 0% 12%;
-    --popover-foreground: 0 0% 98%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 98%;
 
-    --primary: 357 92% 47%;
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 357 92% 57%;
+    --primary-glow: 221 83% 63%;
 
-    --secondary: 0 0% 16%;
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
 
-    --muted: 0 0% 16%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 223 47% 11%;
+    --muted-foreground: 215 20% 65%;
 
-    --accent: 0 0% 98%;
-    --accent-foreground: 0 0% 9%;
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 16%;
-    --input: 0 0% 16%;
-    --ring: 357 92% 47%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 221 83% 53%;
 
-    --gradient-hero: linear-gradient(180deg, hsl(0 0% 8%) 0%, hsl(0 0% 12%) 100%);
-    --gradient-mesh: radial-gradient(at 0% 0%, hsl(357 92% 47% / 0.2) 0px, transparent 50%), radial-gradient(at 100% 0%, hsl(0 0% 100% / 0.05) 0px, transparent 50%);
-    
-    --shadow-sm: 0 2px 4px hsl(0 0% 0% / 0.2);
-    --shadow-md: 0 4px 12px hsl(0 0% 0% / 0.3);
-    --shadow-lg: 0 8px 24px hsl(0 0% 0% / 0.4);
-    --shadow-xl: 0 12px 40px hsl(0 0% 0% / 0.5);
-    --shadow-glow: 0 0 60px hsl(357 92% 47% / 0.35);
+    --gradient-hero: linear-gradient(180deg, hsl(222 47% 8%) 0%, hsl(222 47% 11%) 100%);
+    --gradient-mesh: radial-gradient(at 0% 0%, hsl(221 83% 53% / 0.2) 0px, transparent 50%), radial-gradient(at 100% 0%, hsl(262 83% 58% / 0.2) 0px, transparent 50%);
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 357 92% 47%;
+    --shadow-sm: 0 2px 4px hsl(221 83% 53% / 0.1);
+    --shadow-md: 0 4px 12px hsl(221 83% 53% / 0.2);
+    --shadow-lg: 0 8px 24px hsl(221 83% 53% / 0.25);
+    --shadow-xl: 0 12px 40px hsl(221 83% 53% / 0.3);
+    --shadow-glow: 0 0 60px hsl(221 83% 53% / 0.35);
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 221 83% 53%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 16%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 0 0% 16%;
-    --sidebar-ring: 357 92% 47%;
+    --sidebar-accent: 217 33% 17%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 17%;
+    --sidebar-ring: 221 83% 53%;
   }
 }
 
@@ -123,7 +123,7 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
   }
-  
+
   html {
     scroll-behavior: smooth;
   }
@@ -133,35 +133,35 @@ All colors MUST be HSL.
   .text-gradient {
     @apply bg-gradient-to-r from-primary via-primary-glow to-accent bg-clip-text text-transparent;
   }
-  
+
   .glass-effect {
     @apply bg-background/80 backdrop-blur-xl border border-white/10 shadow-lg;
   }
-  
+
   .gradient-border {
     position: relative;
     background: linear-gradient(hsl(var(--background)), hsl(var(--background))) padding-box,
-                var(--gradient-primary) border-box;
+      var(--gradient-primary) border-box;
     border: 2px solid transparent;
   }
-  
+
   .mesh-gradient {
     background: var(--gradient-mesh);
   }
-  
+
   .dot-pattern {
     background-image: radial-gradient(hsl(var(--foreground) / 0.08) 1px, transparent 1px);
     background-size: 24px 24px;
   }
-  
+
   .gradient-text {
     @apply text-gradient font-bold;
   }
-  
+
   .section-padding {
     @apply py-16 sm:py-20 md:py-24 lg:py-28 xl:py-32;
   }
-  
+
   .container-padding {
     @apply px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16;
   }
