@@ -15,11 +15,10 @@ const Navbar = () => {
 
   const navLinks = [
     { href: "#home", label: "Home" },
-    { href: "#about", label: "About" },
+    { href: "#about", label: "About Us" },
     { href: "#services", label: "Services" },
-    { href: "#testimonials", label: "Testimonials" },
+    { href: "#process", label: "How It Works" },
     { href: "#faq", label: "FAQ" },
-    { href: "#contact", label: "Contact" },
   ];
 
   const scrollTo = (href: string) => {
@@ -33,8 +32,8 @@ const Navbar = () => {
 
       <div className="container mx-auto px-4 sm:px-6 md:px-8 relative">
         <div className="flex items-center justify-between">
-          <button onClick={() => scrollTo("#home")} className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-gradient hover:scale-105 transition-transform">
-            Centrovert
+          <button onClick={() => scrollTo("#home")} className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-primary hover:scale-105 transition-transform">
+            Amin Agency
           </button>
 
           <div className="hidden lg:flex items-center gap-1">
@@ -45,7 +44,7 @@ const Navbar = () => {
                 className="px-3 xl:px-4 py-2 text-sm xl:text-base text-foreground/80 hover:text-primary transition-all font-medium rounded-lg hover:bg-primary/5 relative group"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-primary group-hover:w-3/4 transition-all duration-300" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-secondary group-hover:w-3/4 transition-all duration-300" />
               </button>
             ))}
           </div>
@@ -54,10 +53,10 @@ const Navbar = () => {
             <ThemeToggle />
             <div className="hidden md:block">
               <Button
-                onClick={() => scrollTo("#contact")}
-                className="bg-gradient-primary hover:opacity-90 text-white font-semibold px-5 xl:px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                onClick={() => window.open("https://wa.me/6588992295", "_blank")}
+                className="bg-[#D4AF37] hover:bg-[#B5952F] text-white font-bold px-6 py-2 rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105"
               >
-                Get Started
+                WhatsApp Us
               </Button>
             </div>
             <button
@@ -82,10 +81,10 @@ const Navbar = () => {
               </button>
             ))}
             <Button
-              className="mt-4 w-48 text-lg py-6 rounded-xl shadow-lg"
+              className="mt-4 w-48 text-lg py-6 rounded-xl shadow-lg bg-secondary text-primary"
               onClick={() => scrollTo("#contact")}
             >
-              Get Started
+              Find Helper
             </Button>
             <button
               onClick={() => setIsMobileMenuOpen(false)}
